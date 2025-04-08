@@ -1,7 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3qxlofh75wfg"]
+[gd_scene load_steps=3 format=3 uid="uid://c3qxlofh75wfg"]
 
 [ext_resource type="Texture2D" uid="uid://ullpp0fwv3i3" path="res://arty/kotek.png" id="1_ny7ba"]
+[ext_resource type="Texture2D" uid="uid://btvyavfvev2r1" path="res://sceny/roof.png" id="2_gwiwf"]
 
 [node name="Kotek" type="Sprite2D"]
 position = Vector2(168, 157)
 texture = ExtResource("1_ny7ba")
+
+[node name="Roof" type="Sprite2D" parent="."]
+position = Vector2(228, 222)
+texture = ExtResource("2_gwiwf")

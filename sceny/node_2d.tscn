@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqi4souo4y0at"]
+
+[ext_resource type="Texture2D" uid="uid://dc2ebboai5gj4" path="res://arty/489932642_673940001669754_3554173587161215701_n (1).jpg" id="1_n0oco"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="4899326426739400016697543554173587161215701N(1)" type="Sprite2D" parent="."]
+position = Vector2(581, 323)
+scale = Vector2(0.574219, 0.684182)
+texture = ExtResource("1_n0oco")
