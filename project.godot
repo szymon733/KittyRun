@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="kittyrun"
+run/main_scene="uid://c3qxlofh75wfg"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://scripts/icon.svg"
 
