@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3qxlofh75wfg"]
+
+[ext_resource type="Texture2D" uid="uid://ullpp0fwv3i3" path="res://arty/kotek.png" id="1_ny7ba"]
+
+[node name="Kotek" type="Sprite2D"]
+position = Vector2(168, 157)
+texture = ExtResource("1_ny7ba")
