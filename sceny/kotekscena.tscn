@@ -1,9 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3qxlofh75wfg"]
+[gd_scene load_steps=5 format=3 uid="uid://c3qxlofh75wfg"]
 
 [ext_resource type="Texture2D" uid="uid://ullpp0fwv3i3" path="res://arty/kotek.png" id="1_ny7ba"]
-[ext_resource type="Script" uid="uid://c8mbima024dgo" path="res://sceny/Kotekscena.cs" id="2_gwiwf"]
+[ext_resource type="Script" uid="uid://c8mbima024dgo" path="res://scripts/Kotekscena.cs" id="1_vfkfy"]
+[ext_resource type="Texture2D" uid="uid://btvyavfvev2r1" path="res://arty/roof.png" id="3_vfkfy"]
 
-[node name="Kotek" type="Sprite2D"]
-position = Vector2(439, 273)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfkfy"]
+size = Vector2(186.191, 190.8)
+
+[node name="scena" type="Node2D"]
+position = Vector2(110, 547)
+
+[node name="kotek" type="CharacterBody2D" parent="."]
+z_index = 6
+position = Vector2(-56, -267)
+scale = Vector2(0.542453, 0.566038)
+script = ExtResource("1_vfkfy")
+
+[node name="Sprite2D" type="Sprite2D" parent="kotek"]
 texture = ExtResource("1_ny7ba")
-script = ExtResource("2_gwiwf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kotek"]
+position = Vector2(-2.76521, 1.76666)
+shape = SubResource("RectangleShape2D_vfkfy")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="kolor podłogi" type="Sprite2D" parent="Ground"]
+position = Vector2(284, -287)
+texture = ExtResource("3_vfkfy")
+
+[node name="domek2mod" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2(-45, -78)
+polygon = PackedVector2Array(496, 175, 495, -182, 726, -179)
+
+[node name="domek1mod" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2(14, 9)
+polygon = PackedVector2Array(-110, -225, 286, -223, 282, 90)
