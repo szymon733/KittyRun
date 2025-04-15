@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://btvyavfvev2r1" path="res://arty/roof.png" id="3_vfkfy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfkfy"]
-size = Vector2(114.295, 118.367)
+size = Vector2(82.9562, 84.8001)
 
 [node name="scena" type="Node2D"]
 position = Vector2(110, 547)
@@ -17,27 +17,27 @@ scale = Vector2(0.542453, 0.566038)
 script = ExtResource("1_vfkfy")
 
 [node name="Sprite2D" type="Sprite2D" parent="kotek"]
-position = Vector2(-40.0957, 41.6087)
-scale = Vector2(0.621739, 0.621739)
+position = Vector2(-55.7652, 59.4167)
+scale = Vector2(0.473913, 0.459848)
 texture = ExtResource("1_ny7ba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kotek"]
-position = Vector2(-38.713, 37.9833)
+position = Vector2(-54.3824, 54.7667)
 shape = SubResource("RectangleShape2D_vfkfy")
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, -1)
 
 [node name="kolor podłogi" type="Sprite2D" parent="Ground"]
-position = Vector2(284, -287)
+position = Vector2(280, -281)
 texture = ExtResource("3_vfkfy")
 
 [node name="domek2mod" type="CollisionPolygon2D" parent="Ground"]
-position = Vector2(-45, -78)
+position = Vector2(-55, -78)
 polygon = PackedVector2Array(496, 175, 495, -182, 726, -179)
 
 [node name="domek1mod" type="CollisionPolygon2D" parent="Ground"]
-position = Vector2(14, 9)
+position = Vector2(-3, 18)
 polygon = PackedVector2Array(-110, -225, 286, -223, 282, 90)
 
 [node name="sciana1" type="CollisionPolygon2D" parent="Ground"]
