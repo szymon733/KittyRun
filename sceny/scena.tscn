@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=3 uid="uid://djlqxok0r4rwq"]
+
+[ext_resource type="Texture2D" uid="uid://bscpbumxtj7gl" path="res://arty/heart.png" id="1_nfsbk"]
+[ext_resource type="Texture2D" uid="uid://doyxgcsjefdx1" path="res://parallax/fc7c9a9a-d4c1-463a-ae99-de210ce5d125.webp" id="2_uhhut"]
+[ext_resource type="Texture2D" uid="uid://dtxp1hl81ihwk" path="res://parallax/pixil-frame-0_2.webp" id="3_jmm7c"]
+[ext_resource type="Texture2D" uid="uid://ct7itwr71u7bv" path="res://parallax/pixil-frame-0_3.webp" id="4_qqx1a"]
+[ext_resource type="PackedScene" uid="uid://chceo7xf58t3f" path="res://sceny/kotek.tscn" id="5_uhhut"]
+[ext_resource type="PackedScene" uid="uid://bg3f4bu7kv3p4" path="res://sceny/enemy_1.tscn" id="6_jmm7c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmm7c"]
+size = Vector2(1024, 84)
+
+[node name="scena" type="Node2D"]
+position = Vector2(110, 547)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="hearts" type="Panel" parent="CanvasLayer"]
+visible = false
+offset_right = 141.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/hearts"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -20.5
+offset_right = 65.5
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="heart" type="TextureRect" parent="CanvasLayer/hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_nfsbk")
+expand_mode = 2
+
+[node name="heart2" type="TextureRect" parent="CanvasLayer/hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_nfsbk")
+expand_mode = 2
+
+[node name="heart3" type="TextureRect" parent="CanvasLayer/hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("1_nfsbk")
+expand_mode = 2
+
+[node name="enemy mashroom" type="Node" parent="."]
+
+[node name="parallaxscene" type="Node" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="parallaxscene"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="parallaxscene/ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="parallaxscene/ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+position = Vector2(574.625, 332.75)
+scale = Vector2(1.03027, 0.882393)
+texture = ExtResource("2_uhhut")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="parallaxscene/ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="parallaxscene/ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+position = Vector2(394, 431)
+scale = Vector2(1.19893, 1.06849)
+texture = ExtResource("3_jmm7c")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="parallaxscene/ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="parallaxscene/ParallaxBackground/ParallaxLayer4"]
+texture_filter = 1
+position = Vector2(1055, 435)
+scale = Vector2(0.844893, 1.06849)
+texture = ExtResource("3_jmm7c")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="parallaxscene/ParallaxBackground"]
+motion_mirroring = Vector2(1024, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="parallaxscene/ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+position = Vector2(577, 312)
+scale = Vector2(1.13086, 1)
+texture = ExtResource("4_qqx1a")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_uhhut")]
+position = Vector2(254, -2)
+disable_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-21, -24)
+zoom = Vector2(2.5, 2.5)
+position_smoothing_enabled = true
+drag_left_margin = 0.21
+
+[node name="enemy1" parent="." instance=ExtResource("6_jmm7c")]
+position = Vector2(179, -464)
+
+[node name="collison" type="StaticBody2D" parent="."]
+position = Vector2(467, -235)
+scale = Vector2(1.13086, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collison"]
+position = Vector2(1.76855, 299)
+shape = SubResource("RectangleShape2D_jmm7c")

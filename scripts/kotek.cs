@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Kotekscena : CharacterBody2D
+public partial class kotek : CharacterBody2D
 {
     [Export] public float Speed = 200f;
     [Export] public float JumpVelocity = -400f;
