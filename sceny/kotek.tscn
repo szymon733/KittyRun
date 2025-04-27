@@ -4,17 +4,17 @@
 [ext_resource type="Script" uid="uid://ogrgfc3j4rj4" path="res://scripts/kotek.cs" id="1_nxhxg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jeqj3"]
-size = Vector2(91, 88)
+size = Vector2(140, 144)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_nxhxg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-28, -24)
-scale = Vector2(0.509434, 0.468182)
+position = Vector2(-2, -55.75)
+scale = Vector2(0.754717, 0.756818)
 texture = ExtResource("1_jeqj3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-28.5, -24)
+position = Vector2(-1, -57)
 shape = SubResource("RectangleShape2D_jeqj3")

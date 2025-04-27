@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ep5qon8liqqp"]
+
+[ext_resource type="Texture2D" uid="uid://cl50032a2psbi" path="res://arty/ground.png" id="1_yh8r4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qldbf"]
+size = Vector2(2601, 134)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(654.5, 139)
+scale = Vector2(1.27441, 1.45534)
+texture = ExtResource("1_yh8r4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1957, 139)
+scale = Vector2(1.27441, 1.45534)
+texture = ExtResource("1_yh8r4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1302.5, 576)
+shape = SubResource("RectangleShape2D_qldbf")
