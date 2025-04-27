@@ -103,12 +103,11 @@ disable_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-21, -24)
-zoom = Vector2(2.5, 2.5)
 position_smoothing_enabled = true
 drag_left_margin = 0.21
 
 [node name="enemy1" parent="." instance=ExtResource("6_jmm7c")]
-position = Vector2(179, -464)
+position = Vector2(380, -323)
 
 [node name="collison" type="StaticBody2D" parent="."]
 position = Vector2(467, -235)
