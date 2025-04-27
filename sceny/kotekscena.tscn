@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3qxlofh75wfg"]
+
+[ext_resource type="Texture2D" uid="uid://ullpp0fwv3i3" path="res://arty/kotek.png" id="1_ny7ba"]
+[ext_resource type="Script" uid="uid://c8mbima024dgo" path="res://scripts/Kotekscena.cs" id="1_vfkfy"]
+[ext_resource type="Texture2D" uid="uid://btvyavfvev2r1" path="res://arty/roof.png" id="3_vfkfy"]
+[ext_resource type="Texture2D" uid="uid://bscpbumxtj7gl" path="res://arty/heart.png" id="4_bebif"]
+[ext_resource type="PackedScene" uid="uid://bg3f4bu7kv3p4" path="res://sceny/enemy_1.tscn" id="5_16nle"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfkfy"]
+size = Vector2(82.9562, 84.8001)
+
+[node name="scena" type="Node2D"]
+position = Vector2(110, 547)
+
+[node name="kotek" type="CharacterBody2D" parent="."]
+z_index = 6
+position = Vector2(-56, -267)
+scale = Vector2(0.542453, 0.566038)
+script = ExtResource("1_vfkfy")
+
+[node name="Sprite2D" type="Sprite2D" parent="kotek"]
+position = Vector2(-55.7652, 59.4167)
+scale = Vector2(0.473913, 0.459848)
+texture = ExtResource("1_ny7ba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kotek"]
+position = Vector2(-54.3824, 54.7667)
+shape = SubResource("RectangleShape2D_vfkfy")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="kolor podłogi" type="Sprite2D" parent="Ground"]
+position = Vector2(280, -281)
+texture = ExtResource("3_vfkfy")
+
+[node name="domek2mod" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2(-55, -78)
+polygon = PackedVector2Array(496, 175, 495, -182, 726, -179)
+
+[node name="domek1mod" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2(-3, 18)
+polygon = PackedVector2Array(-110, -225, 286, -223, 282, 90)
+
+[node name="sciana1" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(-106, -212, -105, -547, -119, -213)
+
+[node name="sciana2" type="CollisionPolygon2D" parent="Ground"]
+polygon = PackedVector2Array(669, -255, 666, -551, 685, -251)
+
+[node name="pomiedzy domkami" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2(2, -37)
+polygon = PackedVector2Array(276, 141, 278, 117, 456, 114, 468, 134)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="hearts" type="Panel" parent="CanvasLayer"]
+offset_right = 141.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/hearts"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.5
+offset_top = -20.5
+offset_right = 65.5
+offset_bottom = 20.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="heart" type="TextureRect" parent="CanvasLayer/hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_bebif")
+expand_mode = 2
+
+[node name="heart2" type="TextureRect" parent="CanvasLayer/hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_bebif")
+expand_mode = 2
+
+[node name="heart3" type="TextureRect" parent="CanvasLayer/hearts/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("4_bebif")
+expand_mode = 2
+
+[node name="enemy mashroom" type="Node" parent="."]
+
+[node name="enemy1" parent="enemy mashroom" instance=ExtResource("5_16nle")]
+position = Vector2(-9, 0)
+
+[node name="enemy2" parent="enemy mashroom" instance=ExtResource("5_16nle")]
+position = Vector2(431, -51)
