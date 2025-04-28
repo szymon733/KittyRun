@@ -1,12 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://chceo7xf58t3f"]
 
 [ext_resource type="Texture2D" uid="uid://ullpp0fwv3i3" path="res://arty/kotek.png" id="1_jeqj3"]
-[ext_resource type="Script" uid="uid://ogrgfc3j4rj4" path="res://scripts/kotek.cs" id="1_nxhxg"]
+[ext_resource type="Script" uid="uid://hi08cyibvyg1" path="res://scripts/kotekv2.gd" id="1_nxhxg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jeqj3"]
 size = Vector2(140, 144)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_nxhxg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -16,5 +17,6 @@ scale = Vector2(0.754717, 0.756818)
 texture = ExtResource("1_jeqj3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
 position = Vector2(-1, -57)
 shape = SubResource("RectangleShape2D_jeqj3")
