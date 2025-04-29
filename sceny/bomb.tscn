@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq1oh13hfo4f6"]
+
+[ext_resource type="Texture2D" uid="uid://crhp6hebh6hma" path="res://arty/bomb.png" id="1_20crn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_20crn"]
+radius = 38.0
+height = 80.0
+
+[node name="bomb" type="StaticBody2D"]
+position = Vector2(546, 593)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(32, -11)
+scale = Vector2(0.367412, 0.34984)
+texture = ExtResource("1_20crn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14, -3)
+shape = SubResource("CapsuleShape2D_20crn")

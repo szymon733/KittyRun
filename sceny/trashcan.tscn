@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://6l2y31y7im1s"]
+
+[ext_resource type="Texture2D" uid="uid://ctwwub3mjrqtw" path="res://arty/trashcan.png" id="1_2r3ag"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oorcl"]
+radius = 59.5
+height = 186.0
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(0.313265, 0.304082)
+texture = ExtResource("1_2r3ag")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(0.5, -1)
+shape = SubResource("CapsuleShape2D_oorcl")

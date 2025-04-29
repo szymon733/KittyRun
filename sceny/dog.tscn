@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbn63khw3eh6c"]
+
+[ext_resource type="Texture2D" uid="uid://c26ndpipqeh3" path="res://arty/dog.png" id="1_vwdy7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vwdy7"]
+radius = 54.0
+height = 188.0
+
+[node name="dog" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vwdy7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-32, 30)
+shape = SubResource("CapsuleShape2D_vwdy7")
