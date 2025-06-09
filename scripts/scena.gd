@@ -13,6 +13,7 @@ const KITTY_START_POS := Vector2i(156,-33)
 const CAM_START_POS := Vector2i(470,-226)
 var score : int
 const SCORE_MODIFIER : int = 10
+var high_score : int
 var speed : float
 const START_SPEED : float = 10.0
 const MAX_SPEED : int =25
@@ -79,5 +80,25 @@ func add_obs(obs, x, y):
 	add_child(obs)
 	obstacles.append(obs)
 
+func remove_obs(obs):
+	obs.queue_free()
+	obstacles.erase(obs)
+	
+
 func show_score():
 	$SCORE.get_node("Score Label").text = "SCORE: " + str(score/SCORE_MODIFIER)
+
+func check_high_score():
+	if score > high_score:
+		high_score = score
+		$HUD.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(high_score / SCORE_MODIFIER)
+
+func hit_obs(body):
+	if body.name == "Kitty":
+		print("Collision")
+
+func game_over():
+	check_high_score()
+	get_tree().paused = true
+	game_running = false
+	$GameOver.show()
