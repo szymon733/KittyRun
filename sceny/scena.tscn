@@ -1,11 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://djlqxok0r4rwq"]
+[gd_scene load_steps=10 format=3 uid="uid://djlqxok0r4rwq"]
 
 [ext_resource type="Script" uid="uid://do0el66iuy73f" path="res://scripts/scena.gd" id="1_jmm7c"]
 [ext_resource type="Texture2D" uid="uid://bscpbumxtj7gl" path="res://arty/heart.png" id="1_nfsbk"]
 [ext_resource type="PackedScene" uid="uid://nt76n55nrcla" path="res://sceny/background.tscn" id="2_nfsbk"]
 [ext_resource type="PackedScene" uid="uid://ep5qon8liqqp" path="res://sceny/ground.tscn" id="4_nfsbk"]
-[ext_resource type="PackedScene" uid="uid://chceo7xf58t3f" path="res://sceny/kotek.tscn" id="5_uhhut"]
+[ext_resource type="PackedScene" uid="uid://chceo7xf58t3f" path="res://sceny/Kitty.tscn" id="5_uhhut"]
+[ext_resource type="Script" uid="uid://cgdbgmsh70wch" path="res://sceny/area_2d.gd" id="7_8pmac"]
 [ext_resource type="PackedScene" uid="uid://cqgye5wesbtrs" path="res://sceny/score.tscn" id="7_qqx1a"]
+[ext_resource type="PackedScene" uid="uid://bp0q885hsjabv" path="res://sceny/gameover.tscn" id="8_8pmac"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jmm7c"]
+size = Vector2(79.5, 523)
 
 [node name="scena" type="Node2D"]
 position = Vector2(110, 547)
@@ -66,3 +71,17 @@ position = Vector2(126, -33)
 position = Vector2(470, -226)
 
 [node name="SCORE" parent="." instance=ExtResource("7_qqx1a")]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(77, -241)
+collision_layer = 0
+script = ExtResource("7_8pmac")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-223.25, -47.5)
+shape = SubResource("RectangleShape2D_jmm7c")
+
+[node name="GAMEOVER" parent="." instance=ExtResource("8_8pmac")]
+process_mode = 2
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -22,20 +22,30 @@ var ground_height : int
 var game_running : bool
 var last_obs
 
+
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_window().size
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height()
+	$GAMEOVER.get_node("Button").pressed.connect(new_game)
 	new_game()
+	
 func new_game():
 	score = 0 
 	show_score()
+	get_tree().paused = false
 	$Kitty.position = KITTY_START_POS
 	$Kitty.velocity = Vector2i(0, 0)
 	$Camera2D.position = CAM_START_POS
 	$Ground.position=Vector2i(-112, -536)
-
+	
 	$SCORE.get_node("StartLabel").show()
+	$GAMEOVER.hide()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if game_running:
@@ -49,6 +59,7 @@ func _process(delta):
 		
 		$Kitty.position.x += speed
 		$Camera2D.position.x += speed
+		$Area2D.position.x += speed
 
 		score += speed
 		show_score()
@@ -91,7 +102,7 @@ func show_score():
 func check_high_score():
 	if score > high_score:
 		high_score = score
-		$HUD.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(high_score / SCORE_MODIFIER)
+		#$HUD.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(high_score / SCORE_MODIFIER)
 
 func hit_obs(body):
 	if body.name == "Kitty":
@@ -101,4 +112,4 @@ func game_over():
 	check_high_score()
 	get_tree().paused = true
 	game_running = false
-	$GameOver.show()
+	$GAMEOVER.show()

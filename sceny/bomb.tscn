@@ -8,6 +8,7 @@ height = 80.0
 
 [node name="bomb" type="StaticBody2D"]
 position = Vector2(546, 593)
+collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
